@@ -12,29 +12,29 @@
 
     <div class="user-bar">
           <%# ログインしているときは以下を表示する %>
-      <%# if user_signed_in? %>
+      <% if user_signed_in? %>
     <div class="my-profile-area" id="lists">
       <div class="profile-icon">
         <%= link_to image_tag("profile-icon-img.png", class:"profile-icon"), "/" %>
       </div>
       <div class="greeting"> 
-        <%#= link_to "マイページ", "/users/#{current_user.id}", class: :hoge%>
+        <%= link_to "マイページ", "/users/#{current_user.id}", class: :hoge%>
       </div>
     </div> 
-    <%# else %>
-          <%# // ログインしているときは上記を表示する %>
-    <%# end %>
+    <% else %>
+          <%#// ログインしているときは上記を表示する %>
+    <% end %>
     <div class="user-status">
-    <%# if user_signed_in? %>
+    <% if user_signed_in? %>
       <div class="profile-icon" >
         <%= link_to image_tag("logout-img.png", class:"profile-icon"), "/" %>
       </div>
       <div class="user-status-info" >
-        <li><%= link_to 'ログアウト', root_path, method: :delete, class: "logout"%></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
       </div>
-    <%# else %>
-      <li><%= link_to 'ログイン', root_path %></li>
-      <li><%= link_to '新規登録', root_path %></li>
-    <%# end %>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <li><%= link_to '新規登録', new_user_registration_path %></li>
+    <% end %>
   </div>
 </div>
