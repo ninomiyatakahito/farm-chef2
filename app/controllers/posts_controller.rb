@@ -19,17 +19,30 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def edit
+    @post = Post.find(params[:id])
+    unless current_user.id == @post.user.id
+      redirect_to action: :index 
+    end 
   end
 
   def update
+    if post = Post.find(params[:id])
+      post.update(post_params)
+      redirect_to post_path (post.id), method: :get
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to root_path
   end
-  
   
   private
 
