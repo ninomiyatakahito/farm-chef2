@@ -45,6 +45,10 @@ class PostsController < ApplicationController
     post.destroy
     redirect_to root_path
   end
+
+  def home
+    @posts = Post.all
+  end
   
   private
 
