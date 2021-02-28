@@ -2,6 +2,47 @@
 <%= render "shared/header" %>
 </div>
 
+<div class="posts-list">
+  <div class="new-post">
+  <li><%= link_to '新規POST', new_post_path, class: :post__btn %></li>
+  </div>
+
+
+<div class="card__wrapper">
+  <h1 class="page-title" >投稿一覧</h1>
+    <div class="red-line"></div>
+      <div class="card-main">
+        <div class="posts-list">
+        <% @posts.each do |post| %>
+            <div class="card-contents">
+              <div class="card-img-wrapper">
+                <div class="card-img">
+                  <%= link_to image_tag(post.image, class: :card__img), post_path(post.id) %>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="postuser-img-name-date">
+
+
+                  <div class="postuser-name">
+                      <%= link_to "#{post.user.name}", root_path(post.user.id), class: :card__user %>
+                  </div>
+                  <div class="post-date">
+                    <p><%= post.created_at.strftime('%Y/%m/%d') %> </p>
+                  </div>
+                </div>
+                <div class="card-text">
+                  <%= link_to post.post_text, post_path(post.id), class: :card__user %>
+                </div>
+
+
+              </div>
+            </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+</div>
 
 <div>
 <%= render "shared/footer" %>

@@ -1,0 +1,30 @@
+<div>
+<%= render "shared/header" %>
+</div>
+
+
+<div class="post-main">
+  <h2 class="page-title">投稿ページ</h2>
+  <div class="red-line"></div>
+  <%= form_with(model: @post, local: true) do |f| %>
+
+  <div class="field-image">
+    <%= f.label :image, "画像", class:"post-image-label" %><br />
+    <%= f.file_field :image, class:"post-image"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :post_text, "投稿内容" %><br />
+    <%= f.text_field :post_text, class:"post-text" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+
+  <% end %>
+</div>
+
+<div>
+<%= render "shared/footer" %>
+</div>
