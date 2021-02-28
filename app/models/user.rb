@@ -16,5 +16,6 @@ class User < ApplicationRecord
   validates :kind, presence: true
 
   has_many :posts, dependent: :destroy
+  has_many :comments , dependent: :destroy
 
 end
