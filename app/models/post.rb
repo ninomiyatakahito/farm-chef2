@@ -4,5 +4,10 @@ class Post < ApplicationRecord
 
   validates :post_text, presence: true 
   validates :image, presence: true
+
+  
+  has_many :comments, dependent: :destroy
+
+
 end
 
