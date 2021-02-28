@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates :profile, presence: true
   validates :kind, presence: true
 
+  has_many :posts, dependent: :destroy
+
 end
