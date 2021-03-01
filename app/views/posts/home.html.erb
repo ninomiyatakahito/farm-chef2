@@ -1,22 +1,48 @@
 <div>
-<%= render "shared/header" %>
+<div class="main">
+  <div class="share-header">
+    <div class="header-logo">
+      <%= link_to image_tag("farm-chef-logo.png", class:"farm-chef-icon"), "/" %>
+    </div>
+    <div class='search-bar-contents'>
+      <form class="search-form" action="#">
+          <input class='input-box' placeholder='キーワードから探す'>
+        <button class="search-button" >検索</button>
+      </form>
+    </div>
+
+    <div class="user-bar">
+          <%# ログインしているときは以下を表示する %>
+      <% if user_signed_in? %>
+    <div class="my-profile-area" id="lists">
+      <div class="profile-icon">
+        <%= link_to image_tag("profile-icon-img.png", class:"profile-icon"), "/" %>
+      </div>
+      <div class="test-btn3"> 
+        <%= link_to "マイページ", "/users/#{current_user.id}", class: :test__btn3%>
+      </div>
+    </div> 
+    <% else %>
+          <%#// ログインしているときは上記を表示する %>
+    <% end %>
+    <div class="user-status">
+    <% if user_signed_in? %>
+      <div class="profile-icon" >
+        <%= link_to image_tag("logout-img.png", class:"profile-icon"), "/" %>
+      </div>
+      <div class="user-status-info" >
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
+      </div>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <li><%= link_to '新規登録', new_user_registration_path %></li>
+    <% end %>
+  </div>
+</div>
 </div>
 
-<div class="main">
-  <div class="top-main-contents">
 
-    <div class="service-massages">
-
-      <div class="header-ber-lists">
-        <ul class="show-lists hidden" id="pull-down">
-          <li>リスト1</li>
-          <li>リスト2</li>
-          <li>リスト3</li>
-          <li>リスト4</li>
-        </ul>
-      </div>
       <div class="service-massage">
-
         <%= link_to image_tag("cabbage.png", class:"service-massage-img"), "/" %>
       </div>
       <div class="service-vision">
@@ -25,6 +51,27 @@
       <div class="arrow-area">
         <%= link_to image_tag("arrow.png", class:"arrow-img"), "/" %>
       </div>
+
+
+
+
+
+<div class="main">
+  <div class="top-main-contents">
+
+    <div class="service-massages">
+
+      <!--div class="header-ber-lists">
+        <ul class="show-lists hidden" id="pull-down">
+          <li>リスト1</li>
+          <li>リスト2</li>
+          <li>リスト3</li>
+          <li>リスト4</li>
+        </ul>
+      </div-->
+
+
+
     </div>
 
 
