@@ -169,8 +169,9 @@
                     <div class="card-text-top">
                       <%= link_to post.post_text, post_path(post.id), class: :card__text__top %>
                     </div>
-
-
+                    <div class="like-count">
+                     いいね! <%= post.likes.count %>
+                    </div>
 
                   </div>
                 </div>
@@ -202,6 +203,7 @@
     <div class="media-img">
       <%= link_to image_tag("media-list.png", class:"media-list-img"), "/" %>
     </div>
+
   </div>
 </div>
 
