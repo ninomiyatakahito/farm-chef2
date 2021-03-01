@@ -15,6 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :street,             null: false
       t.string :business_name,      null: false
       t.text   :profile,            null: false
+      
       t.string :kind,               null: false
 
       ## Recoverable
