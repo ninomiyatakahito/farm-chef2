@@ -19,7 +19,7 @@
       <div class="post-content-show">
         <div class="post-body">
           <div class="post__user__name">
-            <%= link_to @post.user.name , root_path, class: :hoge %>
+            <%= link_to @post.user.name , user_path, class: :hoge %>
           </div>
           <p><%= @post.created_at %> </p>
           <div class="post__detail">
@@ -27,6 +27,9 @@
           </div>
           <div class="post__text">
             <%=  @post.post_text %>
+          </div>
+          <div class="like-count">
+             いいね! <%= @post.likes.count %>
           </div>
         </div>
       </div>
@@ -49,8 +52,16 @@
             <%= comment.comment_text %>
           </p>
           <p class="comment_user_area">
-            <%= link_to comment.user.name, root_path(comment.user.id), class: :comment_user %>
+            <%= link_to comment.user.name, user_path(comment.user.id), class: :comment_user %>
           </p>
+        <% end %>
+      </div>
+
+      <div class="like-btn">
+        <% if current_user.already_liked?(@post) %>
+        <%= button_to 'いいねを取り消す', post_like_path(@post),class: :like_btn, method: :delete %>
+        <% else %>
+        <%= button_to 'いいね', post_likes_path(@post) %>
         <% end %>
       </div>
 
