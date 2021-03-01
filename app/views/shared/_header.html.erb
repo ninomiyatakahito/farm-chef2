@@ -17,8 +17,8 @@
       <div class="profile-icon">
         <%= link_to image_tag("profile-icon-img.png", class:"profile-icon"), "/" %>
       </div>
-      <div class="greeting"> 
-        <%= link_to "マイページ", "/users/#{current_user.id}", class: :hoge%>
+      <div class="test-btn4"> 
+        <%= link_to "マイページ", "/users/#{current_user.id}", class: :test__btn4 %>
       </div>
     </div> 
     <% else %>
@@ -38,3 +38,14 @@
     <% end %>
   </div>
 </div>
+
+    <div class="menu">
+      <div class="menu-title">Main Menu</div>
+      <div class="sub-menu">
+        <ul>
+          <li><a href="#">Sub Menu1</a></li>
+          <li><a href="#">Sub Menu2</a></li>
+          <li><a href="#">Sub Menu3</a></li>
+        </ul>
+      </div>
+    </div>

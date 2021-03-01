@@ -53,9 +53,72 @@
 
 }
 
-
-
-
 .hidden{
   display: none;
+}
+
+/*メニューバー*/
+
+
+/*テストメニューバー*/
+.menu {
+  width: 200px;
+  text-align: center;
+  background: navy;
+  color: white;
+}
+
+.sub-menu {
+  background: white;
+  display: none;
+}
+
+
+
+ul {
+  width: 100px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: navy;
+}
+
+.menu:hover .sub-menu {
+  display: block;
+}
+
+/*マイページメニューボタン*/
+
+.test-btn4{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1f1f1;
+  background-color: #00bfffb5;
+  width: 50%;
+  max-width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 100%;
+  padding: 0 10px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.test-btn4:hover {
+  border: solid 0.5px;
+  color: #ff0000;
+  font-weight: bold;
+  background-color: #ffffff;
+  opacity: 0.9;
+  height: 200px;
+}
+
+.test-btn4:hover .sub-menu{
+  display: block;
 }
