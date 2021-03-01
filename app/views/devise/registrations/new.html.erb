@@ -67,7 +67,7 @@
   </div>
 
   <div class="field">
-        <%= f.label :"プロフィール（400字いないでご記入ください）" %><br />
+        <%= f.label :"プロフィール（400字以内でご記入ください）" %><br />
         <%= f.text_field :profile %>
   </div>
 
@@ -77,7 +77,7 @@
   </div>
 
   <div class='field'>
-    <%= f.label :"生産者か料理人を洗濯してください" %><br />
+    <%= f.label :"生産者か料理人を選択してください" %><br />
     <%= f.select :kind, [["生産者", "1"], ["料理人", "2"]], class:"input-genre", include_blank: "選択して下さい" %>
   </div>
 

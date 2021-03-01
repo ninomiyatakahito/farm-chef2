@@ -4,29 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-  validates :kana_name, presence: true
-  validates :birthday, presence: true
-  validates :post_code, presence: true
-  validates :prefecture, presence: true
-  validates :city, presence: true
-  validates :street, presence: true
-  validates :business_name, presence: true
-  validates :profile, presence: true
-  validates :kind, presence: true
+         has_many :posts, dependent: :destroy
+         has_many :comments , dependent: :destroy
+         
+         has_one_attached :avatar 
 
-  has_many :posts, dependent: :destroy
-  has_many :comments , dependent: :destroy
-  validates :image, presence: true
+         has_many :likes, dependent:  :delete_all
+         has_many :liked_posts, through: :likes, source: :post
 
-  has_many :likes, dependent:  :delete_all
-  has_many :liked_posts, through: :likes, source: :post
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
-
-  has_one_attached :avatar 
-
-
 
 end

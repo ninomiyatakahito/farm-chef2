@@ -6,7 +6,6 @@ class Post < ApplicationRecord
   validates :image, presence: true
   
   has_many :comments, dependent: :destroy
-
   has_many :likes
 
   

@@ -12,7 +12,7 @@
             <% if user.kind == "1" %>
             <div class="farmer-lists">
               <div class="user-kind"><% link_to user.kind %></div>
-              <div class="user-avataer"><%#= link_to image_tag(user.avatar, class: :profile__img), user_path(user.id) %></div>
+              <div class="user-avataer"><%= link_to image_tag(user.avatar, class: :profile__img), user_path(user.id) %></div>
               <div class="user-name"><%= link_to user.name, user_path(user.id), class: :card__user__name  %></div>
               <div class="user-predecture"><%= link_to user.prefecture, user_path(user.id), class: :card__user__text %></div>
               <div class="business-name"><%= link_to user.business_name, user_path(user.id), class: :card__user__text %></div>
