@@ -89,6 +89,16 @@
               </div>
             </div>
           <% end %>
+          <h3  class="posted-user-name"><b><%= @user.name %>いいねしている投稿</b></h3>
+                <div class="red-line"></div>
+          <% @user.liked_posts.each do |post| %>
+            <div class="posted-img">
+                <%= link_to image_tag(post.image, class: :card__img), post_path(post.id) %>
+            </div>
+            <div class="posted-text">
+              <a href="/#/<%= post.id %>"><%= post.post_text %></a>
+            </div>
+          <% end %>
         </div>
     </div>
   </div>
